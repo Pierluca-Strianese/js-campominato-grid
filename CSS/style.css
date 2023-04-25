@@ -1,0 +1,37 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+}
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	width: 600px;
+	height: 600px;
+	background-color: aquamarine;
+	border: 3px solid greenyellow;
+	box-sizing: content-box;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 60px;
+	height: 60px;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.clicked {
+	background-color: white;
+}
