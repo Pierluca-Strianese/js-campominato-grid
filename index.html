@@ -8,7 +8,28 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="grid"></div>
+
+    <header>
+        <h1> Campo minato </h1>
+        <div>
+            <label for="level">Difficoltà</label>
+            <select id="level">
+                <option value="100" selected> Easy </option>
+                <option value="81"> Medium </option>
+                <option value="49"> Hard </option>
+            </select>
+            <button id="play">Play</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="help">Selezionare il livello e premere play per giocare</div>
+		<div class="grid hidden"></div>
+    </main>
+
+    <footer>
+        by Pierluca Strianese
+    </footer>
 
 	<script src="js/script.js"></script>
 </body>

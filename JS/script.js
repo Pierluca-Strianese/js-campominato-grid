@@ -1,22 +1,37 @@
 const eleGrid = document.querySelector('.grid');
+const btnPlay = document.querySelector('#play');
+const selectLevel = document.querySelector('#level');
+const eleHelp = document.querySelector('.help');
 
-createGrid(100, eleGrid);
+btnPlay.addEventListener('click', function() {
 
-const listCells = document.querySelectorAll('.cell');
-for (let i = 0; i < listCells.length; i++) {
-	const cell = listCells[i];
-	cell.addEventListener('click',
-		function colorCell() {
-			console.log('cliccata cella n°', i + 1);
-			this.classList.toggle('clicked');
-		}
-	);
-}
+	eleHelp.classList.add('hidden');
+
+	eleGrid.classList.remove('hidden');
+
+	const nCells = parseInt(selectLevel.value);
+
+	eleGrid.style.setProperty('--sideSquare', Math.sqrt(nCells));
+
+	createGrid(nCells, eleGrid);
+});
 
 // FUNCTION
 
-function createGrid(numCells, eleContainer) {
-	for (let i = 0; i < numCells; i++) {
-		eleContainer.innerHTML += `<div class="cell"> ${i + 1} </div>`;
+function createGrid(nCells, eleContainer) {
+
+	const side = Math.sqrt(nCells);
+
+	eleContainer.innerHTML = '';
+
+	for (let i = 1; i <= nCells; i++) {
+		const eleCell = document.createElement('div');
+		eleCell.innerHTML = i;
+		eleCell.classList.add('cell');
+		eleContainer.append(eleCell);
+		eleCell.addEventListener('click', function() {
+			console.log('cliccata cella n° ' + this.innerHTML)
+			this.classList.toggle('clicked');
+		});
 	}
 }
